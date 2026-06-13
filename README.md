@@ -4,6 +4,19 @@ A clean, maintainable personal website built with Next.js App Router, TypeScript
 
 The goal is to launch a simple digital home now and keep improving it over time.
 
+## Status
+
+V0 is live on Vercel.
+
+This version is intentionally simple: a personal lab / digital garden foundation with structured content files and minimal UI complexity.
+
+## Tech stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Vercel
+
 ## Structure
 
 ```txt
@@ -14,11 +27,15 @@ public/       Static assets
 prompts/      Current and future build instructions
 ```
 
-Content updates should mostly happen in:
+## Updating content
 
-- `data/site.ts`
-- `data/projects.ts`
-- `data/notes.ts`
+Most content updates should happen in the data files:
+
+- `data/site.ts` — name, intro text, contact links, focus areas, about content
+- `data/projects.ts` — project cards and project metadata
+- `data/notes.ts` — simple note archive entries
+
+This keeps the page components stable and makes future updates easier.
 
 ## Local development
 
@@ -27,7 +44,23 @@ npm install
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Then open:
+
+```txt
+http://localhost:3000
+```
+
+For mobile testing on the same local network, run:
+
+```bash
+npm run dev -- -H 0.0.0.0
+```
+
+Then open the Mac's local network address from the phone, for example:
+
+```txt
+http://<local-ip>:3000
+```
 
 ## Build
 
@@ -35,8 +68,33 @@ Then open `http://localhost:3000`.
 npm run build
 ```
 
+## Lint
+
+```bash
+npm run lint
+```
+
 ## Deployment
 
-This project is prepared for Vercel deployment, but deployment is intentionally undecided for now.
+The site is deployed through Vercel.
 
-When ready, connect this repository to Vercel and use the default Next.js build settings.
+Typical deployment flow:
+
+1. Push changes to GitHub.
+2. Vercel detects the update automatically.
+3. Vercel runs `npm run build`.
+4. If the build succeeds, the production site is updated.
+
+No environment variables are required for V0.
+
+## Known follow-ups
+
+- Add real project links as they become available.
+- Add more complete project and note content over time.
+- Decide on a custom domain.
+- Recheck the theme toggle behavior on mobile.
+- Consider a China-accessible mirror only if mainland access becomes important.
+
+## Principle
+
+Launch first. Iterate forever.
